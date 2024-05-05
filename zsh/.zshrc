@@ -1,10 +1,13 @@
 #!/bin/zsh
 
+fastfetch
+
 export HOMEBREW_NO_ANALYTICS=1
 export PATH="$HOME/.local/bin":$PATH
 export TERM='xterm-256color'
 export EDITOR='nvim'
 export VISUAL='nvim'
+export DOCKER_HOST='unix:///var/folders/r9/73p932bn0kn213tj44chr9v80000gn/T/podman/srv-api.sock'
 
 # history
 HISTFILE=~/.zsh_history
