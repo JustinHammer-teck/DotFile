@@ -1,5 +1,4 @@
 format = """
-$username\
 $hostname\
 $directory\
 $localip\
@@ -11,6 +10,7 @@ $git_metrics\
 $fill\
 $dotnet\
 $golang\
+$python\
 $direnv\
 $nix_shell\
 $lua\
@@ -105,6 +105,16 @@ format = 'via [☃️ $state( \($name\))](bold blue) '
 format = 'via [$symbol($version )]($style)'
 symbol = '🌙 '
 detect_extensions = ['lua']
+
+[python]
+symbol = " "
+#pyenv_version_name = true
+format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
 
 # [custom.podman]
 # symbol = "podman"

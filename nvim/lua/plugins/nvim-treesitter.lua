@@ -15,6 +15,7 @@ return {
         "vim",
         "yaml",
         "go",
+        "dockerfile",
         "c_sharp",
       },
       highlight = { enable = true },
