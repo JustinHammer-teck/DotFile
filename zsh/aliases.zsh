@@ -31,4 +31,6 @@ alias ls="eza --all --color=always --long --git --no-filesize --icons=always --n
 
 alias cd="z"
 
+alias zel="zellij"
+
 # alias podman-tui="pui"

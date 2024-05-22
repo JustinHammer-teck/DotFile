@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-fastfetch
 
 export HOMEBREW_NO_ANALYTICS=1
 export PATH="$HOME/.local/bin":$PATH
@@ -35,8 +34,16 @@ bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+
+# Remove direnv output
+export DIRENV_LOG_FORMAT="$(printf "\033[2mdirenv: %%s\033[0m")"
+eval "$(direnv hook zsh)"
+_direnv_hook() {
+  eval "$(direnv export zsh 2> >(egrep -v -e '^....direnv: export' >&2))"
+};
+
+
 eval "$(/usr/local/bin/brew shellenv)"
 eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 

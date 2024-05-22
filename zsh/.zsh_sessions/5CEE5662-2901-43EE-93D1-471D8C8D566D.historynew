@@ -1,0 +1,29 @@
+nix
+clear
+nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+cleatr
+clear
+./result/bin/darwin-installer
+clear
+nix run nix-darwin -- switch --flake ~/.home/flake.nix
+nix run nix-darwin -- switch --extra-experimental-features nix-command flake --flake ~/.home/flake.nix
+nix run nix-darwin -- switch --extra-experimental-features nix-command --flake ~/.home/flake.nix
+nix run nix-darwin -- switch '--extra-experimental-features nix-command flake' --flake ~/.home/flake.nix
+nix run nix-darwin --extra-experimental-features nix-command flake
+nix run nix-darwin --extra-experimental-features nix-command flakes -- switch --flake ~/.home/flake.nix
+nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.home/flake.nix
+nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.home/flake.nix#macbook
+clear
+nvim 
+clear
+nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.home/flake.nix#imbp
+   rm /Users/moritzzmn/.local/state/nix/profiles/home-manager*\
+
+   rm /Users/moritzzmn/.local/state/home-manager/gcroots/current-home\
+
+clear
+nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.home/flake.nix#imbp
+darwin-rebuild changelog
+clear
+nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.home/flake.nix#imbp
+darwin-rebuild switch --flake ~/.home/flake.nix
