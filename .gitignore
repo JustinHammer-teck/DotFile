@@ -3,3 +3,7 @@ Jetbrains/
 containers/
 neofetch/
 direnv/
+
+*/**/.zsh_sessions/
+
+alacritty/
