@@ -1,109 +1,111 @@
 format = """
+[  ](fg:#a3aed2) \
 $hostname\
 $directory\
 $localip\
-$os\
+$dotnet $golang $python $container $nix_shell $lua\
+$fill\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-$fill\
-$dotnet\
-$golang\
-$python\
-$direnv\
-$nix_shell\
-$lua\
 $cmd_duration $jobs $time\
 $line_break\
 $container\
-$shell\
 $character"""
-
-[nodejs]
-format = "[$symbol($version )]($style)"
 
 [fill]
 symbol = " "
 
 [directory]
-style = "blue"
-read_only = " "
-truncation_length = 4
+read_only = " 󰌾"
+style = "#7dcfff"
+format = '[\[$path\]]($style)'
+truncation_length = 3
+truncation_symbol = '…/'
 truncate_to_repo = false
 
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = ""
+"Pictures" = " "
+
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
+success_symbol = "[❯](#7aa2f7)"
+error_symbol = "[❯](#f7768e)"
+vicmd_symbol = "[❮](#9ece6a)"
 
 [git_branch]
-symbol = " "
-format = "[$symbol$branch]($style) "
-style = "bright-black"
-
-[jobs]
-symbol = ""
-style = "bold red"
-number_threshold = 1
-format = "[$symbol]($style)"
+symbol = "  "
+format = '[$symbol\[$branch\]]($style)'
+style = "fg:769ff0"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
-style = "cyan"
+style = "#73daca"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "#bb9af7"
 
 [git_metrics]
 disabled = false
 
+[jobs]
+symbol = ""
+style = "#f7768e"
+number_threshold = 1
+format = "[$symbol]($style)"
+
 [cmd_duration]
 format = "[$duration]($style)"
-style = "yellow"
-
-[memory_usage]
-symbol = " "
+style = "#e0af68"
 
 [time]
 disabled = false
-style = "bold white"
-format = "[$time]($style)"
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
-[custom.stunnel]
-when = "ps aux | grep stunnel | grep -v grep"
-command = "ps -o etime= -p $(ps aux | grep stunnel | grep -v grep | awk '{print $2}')"
-style = "red"
-format = "[TUNNEL OPEN for $output]($style)"
+[nodejs]
+symbol = '󰎙'
+style = '#9ece6a'
+format = "[$symbol($version )]($style)"
 
 [golang]
+symbol = '󰟓 '
+style = "#b4f9f8"
 format = 'via [$symbol($version )($mod_version )]($style)'
 
 [container]
+symbol = '⬢'
 format = '[$symbol \[$name\]]($style) '
 
 [dotnet]
-symbol = '🥅 '
-style = 'green'
-heuristic = false
-format = '[$symbol \[$name\]]($style) '
+symbol = ' '
+style = 'bold fg:#7aa2f7'
+heuristic = true
+version_format = 'v${raw}'
+format = ' [${symbol}dotnet (${version} )(\($tfm\))]($style)'
+detect_extensions = ["sln", "cs"]
 
 [localip]
 ssh_only = false
-format = '@[$localipv4](bold red) '
+format = '[\[$localipv4\]](red)'
 disabled = false
 
 [nix_shell]
+symbol= 'flake '
 disabled = true
 impure_msg = '[impure shell](bold red)'
 pure_msg = '[pure shell](bold green)'
 unknown_msg = '[unknown shell](bold yellow)'
-format = 'via [☃️ $state( \($name\))](bold blue) '
+format = 'via [󱄅 $state( \($name\))](bold blue) '
 
 [lua]
 format = 'via [$symbol($version )]($style)'
-symbol = '🌙 '
+symbol = ''
 detect_extensions = ['lua']
 
 [python]
@@ -116,7 +118,3 @@ python_binary = ["./venv/bin/python", "python", "python3", "python2"]
 detect_extensions = ["py"]
 version_format = "v${raw}"
 
-# [custom.podman]
-# symbol = "podman"
-# command = ''
-# format = '[$symbol]'
