@@ -2,7 +2,7 @@
 
 function take {
   mkdir -p $1
-  cd $1
+  z $1
 }
 
 function note {

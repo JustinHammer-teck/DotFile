@@ -1,4 +1,4 @@
-local i = require("plugins.modules.icons")
+local i = require("plugins.modules.ui.icons")
 local M = {}
 
 M.opts = {
