@@ -15,6 +15,11 @@ if omnisharp_path ~= nil then
           enable_decompilation_support = true,
           sdk_include_prereleases = true,
           filetypes = { "cs", "vb", "csproj", "sln", "slnx", "props", "csx", "props", "targets" },
+          -- root_dir = function()
+          --   local lspconfig = require("lspconfig")
+          --
+          --   lspconfig.util.root_pattern("*.sln")
+          -- end,
           handlers = {
             ["textdocument/definition"] = function(...)
               return require("omnisharp_extended").handler(...)

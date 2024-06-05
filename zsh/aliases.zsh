@@ -31,6 +31,8 @@ alias ls="eza --all --color=always --long --git --no-filesize --icons=always --n
 
 alias cd="z"
 
-alias zel="zellij"
+alias conf="nvim ~/.home"
+alias dotf="nvim ~/.config"
+alias note="nvim ~/paranote"
 
 # alias podman-tui="pui"

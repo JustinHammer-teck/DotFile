@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# border setting
+
 # bar settings
 yabai -m config status_bar off
 yabai -m config status_bar_text_font "DroidSansM Nerd Font:Bold:12.0"
@@ -10,7 +12,7 @@ yabai -m config status_bar_space_icon_strip I II III IV V VI VII VIII IX X
 yabai -m config status_bar_power_icon_strip  
 yabai -m config status_bar_space_icon 
 yabai -m config status_bar_clock_icon 
-# yabai -m config window_animation_duration   1.0
+yabai -m config window_animation_duration 0.6
 
 # global settings
 yabai -m config mouse_follows_focus off
@@ -19,7 +21,7 @@ yabai -m config window_placement second_child
 yabai -m config window_opacity off
 yabai -m config window_opacity_duration 0.0
 yabai -m config window_shadow float
-yabai -m config window_border off
+yabai -m config window_border on
 yabai -m config window_border_placement inset
 yabai -m config window_border_width 4
 yabai -m config window_border_radius -1.0
@@ -54,5 +56,7 @@ yabai -m rule --add app='^System Preferences$' manage=off layer=above
 yabai -m rule --add app='Activity Monitor' manage=off layer=above
 yabai -m rule --add app='Finder' manage=off layer=above
 yabai -m rule --add app='^System Information$' manage=off layer=above
+
+yabai -m window --toggle border
 
 echo "yabai configuration loaded.."
