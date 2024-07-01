@@ -8,4 +8,6 @@ return {
   require("plugins.modules.ui.setup.colorscheme"),
   require("plugins.modules.obsidian"),
   require("plugins.lsp.omnisharp"),
+  require("plugins.lsp.nil-ls"),
+  require("plugins.lsp.pyright"),
 }
