@@ -3,7 +3,7 @@ format = """
 $hostname\
 $directory\
 $localip\
-$dotnet $golang $python $container $nix_shell $lua\
+$dotnet $golang $python $container $nodejs $nix_shell $lua\
 $fill\
 $git_branch\
 $git_state\
@@ -71,7 +71,7 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 [nodejs]
 symbol = '󰎙'
 style = '#9ece6a'
-format = "[$symbol($version )]($style)"
+format = "via [$symbol($version )]($style)"
 
 [golang]
 symbol = '󰟓 '
@@ -96,12 +96,12 @@ format = '[\[$localipv4\]](red)'
 disabled = false
 
 [nix_shell]
-symbol= 'flake '
-disabled = true
+symbol= '󱄅 '
+disabled = false
 impure_msg = '[impure shell](bold red)'
 pure_msg = '[pure shell](bold green)'
 unknown_msg = '[unknown shell](bold yellow)'
-format = 'via [󱄅 $state( \($name\))](bold blue) '
+format = 'via [󱄅 $state( \($name\))](#7dcfff) '
 
 [lua]
 format = 'via [$symbol($version )]($style)'

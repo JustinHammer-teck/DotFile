@@ -10,4 +10,5 @@ return {
   require("plugins.lsp.omnisharp"),
   require("plugins.lsp.nil-ls"),
   require("plugins.lsp.pyright"),
+  require("plugins.lsp.typescript"),
 }

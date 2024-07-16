@@ -20,6 +20,8 @@ return {
         "go",
         "dockerfile",
         "c_sharp",
+        "vue",
+        "typescript",
       },
       highlight = { enable = true },
       indent = { enable = true },

@@ -27,7 +27,7 @@ alias lla='ls -a'
 
 alias c='clear'
 
-alias ls="eza --all --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias ls="eza --all --color=always --long --accessed --git --no-filesize --icons=always --no-time"
 
 alias cd="z"
 

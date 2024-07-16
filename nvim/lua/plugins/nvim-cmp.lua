@@ -7,7 +7,6 @@ return {
     "hrsh7th/cmp-path", -- source for file system paths in commands
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for lua autocompletion
-    -- "onsails/lspkind.nvim",
     "hrsh7th/cmp-cmdline",
   },
   ---@param opts cmp.ConfigSchema
