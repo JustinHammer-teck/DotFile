@@ -9,9 +9,6 @@ return {
             vue = {
               hybridMode = false,
             },
-            -- typescript = {
-            -- tsdk = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/typescript/lib",
-            -- },
           },
         },
       },

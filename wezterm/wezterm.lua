@@ -28,14 +28,12 @@ return {
 	default_prog = { "zsh", "--login" },
 	window_decorations = "RESIZE",
 	window_background_opacity = 0.85,
+	macos_window_background_blur = 10,
 	font = wezterm.font_with_fallback({
 		"DroidSansM Nerd Font",
-		"MonoLisa Nerd Font",
-		"Fira Code",
-		"Noto Color Emoji",
 	}),
 	font_size = 12.5,
-	enable_tab_bar = true,
+	enable_tab_bar = false,
 	-- term = "wezterm",
 	-- set_environment_variables = {
 	-- 	TERMINFO_DIRS = "/home/haseebmajid/.nix-profile/share/terminfo",
@@ -44,8 +42,8 @@ return {
 	window_padding = {
 		left = 10,
 		right = 10,
-		top = 10,
-		bottom = 10,
+		top = 5,
+		bottom = 5,
 	},
 	keys = {
 		{
