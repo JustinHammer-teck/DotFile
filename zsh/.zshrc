@@ -19,20 +19,26 @@ HISTFILE=~/.zsh_history
 [[ -f $ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh ]] && source $ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh
 [[ -f $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-# keybinds
-bindkey '^ ' autosuggest-accept
-
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
   alias catt="bat --theme \"Visual Studio Dark+\"" 
 fi
 
+
+# Key binding
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+
+bindkey '^w' autosuggest-execute
+bindkey '^e' autosuggest-accept
+bindkey '^u' autosuggest-toggle
+bindkey '^L' vi-forward-word
+bindkey '^k' up-line-or-search
+bindkey '^j' down-line-or-search
 
 
 # Remove direnv output

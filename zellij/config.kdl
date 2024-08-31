@@ -1,4 +1,4 @@
-theme "catppuccin-mocha"
+theme "catppuccin-macchiato"
 pane_frames false
 simplified_ui true
 default_layout "mine"
@@ -15,7 +15,7 @@ keybinds {
         bind "Ctrl l" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Ctrl z" { SwitchToMode "Normal"; }
+        bind "Ctrl r" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
         bind "k" "Up" { Resize "Increase Up"; }
@@ -198,9 +198,6 @@ plugins {
     strider location="zellij:strider"
     compact-bar location="zellij:compact-bar"
     session-manager location="zellij:session-manager"
-    welcome-screen location="zellij:session-manager" {
-        welcome_screen true
-    }
     filepicker location="zellij:strider" {
         cwd "/"
     }
@@ -282,6 +279,22 @@ plugins {
 //         white 255 255 255
 //     }
 // }
+
+themes { 
+  catppuccin-macchiato {
+      fg 202 211 245
+      bg 91 96 120
+      black 30 32 48
+      red 237 135 150
+      green 166 218 149
+      yellow 238 212 159
+      blue 138 173 244
+      magenta 245 189 230
+      cyan 145 215 227
+      white 202 211 245
+      orange 245 169 127
+  }
+}
 
 // Choose the theme that is specified in the themes section.
 // Default: default
