@@ -1,0 +1,127 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+set number relativenumber
+set idearefactormode=keep
+set surround
+set easymotion
+set which-key
+set NERDTree 
+
+let mapleader = " "
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r :action(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d :action(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b :action(ToggleLineBreakpoint)
+nmap <C-a> ggVG
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Tab navigation
+" nmap <A-n> :tabnext<CR>
+" nmap <A-p> :tabprev<CR>\
+
+" Pane navigation
+nmap <A-h> <C-w>h
+nmap <A-l> <C-w>l
+nmap <A-k> <C-w>k
+nmap <A-j> <C-w>j
+
+" File navigation
+let g:WhichKeyDesc_search = "<leader>f Go To File"
+
+nmap <leader>fe :action SearchEverywhere<CR>
+nmap <leader>ff :action GotoFile<CR>
+nmap <leader>fr :action RecentFiles
+nmap <leader>fc :action FindInPath
+nmap <leader><leader> <C-Tab>
+nmap <leader>fl :action(RecentLocations)
+nmap <leader>fs :action(NewScratchFile)
+
+"" Map \b to toggle the breakpoint on the current line
+nmap \b :action(ToggleLineBreakpoint)
+
+" Refactoring
+let g:WhichKeyDesc_refactor = "<leader>r Refactoring"
+nmap <leader>rc :action(ReformatCode)
+nmap <leader>rn :action(RenameElement)
+nmap <leader>rm :action(ExtractMethod)
+nmap <leader>rv :action(IntroduceVariable)
+nmap <leader>rf :action(IntroduceField)
+nmap <leader>rs :action(ChangeSignature)
+nmap <leader>rr :action(Refactorings.QuickListPopupAction)
+nmap <leader>ot :action(Terminal)
+
+" Close active tab
+map <leader>t\ <Action>(SplitVertically)
+map <leader>t% <Action>(SplitHorizontally)
+map <leader>tm <Action>(MoveEditorToOppositeTabGroup)
+nmap <C-t>h <C-w>h
+nmap <C-t>l <C-w>l
+nmap <C-t>j <C-w>j
+nmap <C-t>k <C-w>k
+
+nmap <leader>e :NERDTreeToggle<CR>
+
+" Go to code
+let g:WhichKeyDesc_goto = "<leader>g Goto..."
+nmap gd :action GotoDeclaration<CR>
+nmap gty :action GotoTypeDeclaration<CR>
+nmap gi :action GotoImplementation<CR>
+nmap <leader>gu <Action>(ShowUsages)
+nmap gtt :action GotoTest<CR>
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+nmap <S-Tab> <Action>(PreviousTab)
+nmap <Tab> <Action>(NextTab)
+nmap <leader>ca :action(ShowIntentionActions)
+nmap <leader>gs :action(GotoSuperMethod)
+nmap cr <Action>(RenameElement)
+
+" Errors
+let g:WhichKeyDesc_errors = "<leader>e Error navigation"
+nmap <leader>]e <Action>(ReSharperGotoNextErrorInSolution)
+nmap <leader>[e <Action>(ReSharperGotoPrevErrorInSolution)
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>
+
+" Jump Between Methods
+nmap [[ :action MethodUp<CR>    
+nmap ]] :action MethodDown<CR>
+
+" Debugging
+nmap <leader>aa <Action>(Bookmarks.Toggle)
+
+nmap <leader>vr <Action>(IdeaVim.ReloadVimRc.reload)
+
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
