@@ -6,19 +6,21 @@ export PATH="$HOME/.local/bin":$PATH
 export TERM='xterm-256color'
 export EDITOR='nvim'
 export VISUAL='nvim'
-export DOCKER_HOST='unix:///var/folders/r9/73p932bn0kn213tj44chr9v80000gn/T/podman/srv-api.sock'
+# export DOCKER_HOST='unix:///var/folders/r9/73p932bn0kn213tj44chr9v80000gn/T/podman/srv-api.sock'
 
 # history
 HISTFILE=~/.zsh_history
 
 # source
 [[ -f $ZDOTDIR/aliases.zsh ]] && source $ZDOTDIR/aliases.zsh
+[[ -f $ZDOTDIR/git.zsh ]] && source $ZDOTDIR/git.zsh
 [[ -f $ZDOTDIR/function.zsh ]] && source $ZDOTDIR/function.zsh
 
-[[ -f $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
-[[ -f $ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh ]] && source $ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh
-[[ -f $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[[ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+[[ -f $ZDOTDIR/modules/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source $ZDOTDIR/modules/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f $ZDOTDIR/modules/zsh-history-substring-search/zsh-history-substring-search.zsh ]] && source $ZDOTDIR/modules/zsh-history-substring-search/zsh-history-substring-search.zsh
+[[ -f $ZDOTDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZDOTDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f $ZDOTDIR/modules/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source $ZDOTDIR/modules/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
   alias catt="bat --theme \"Visual Studio Dark+\"" 

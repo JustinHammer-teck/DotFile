@@ -41,6 +41,12 @@ Plug 'tpope/vim-commentary'
 "map \b :action(ToggleLineBreakpoint)
 nmap <C-a> ggVG
 
+
+" Utils"
+" Check this
+" map <leader>tt <Action>(OpenTerminal)
+
+
 " Easy visual indentation
 vnoremap < <gv
 vnoremap > >gv
@@ -50,10 +56,10 @@ vnoremap > >gv
 " nmap <A-p> :tabprev<CR>\
 
 " Pane navigation
-nmap <A-h> <C-w>h
-nmap <A-l> <C-w>l
-nmap <A-k> <C-w>k
-nmap <A-j> <C-w>j
+" nmap <A-h> <C-w>h
+" nmap <A-l> <C-w>l
+" nmap <A-k> <C-w>k
+" nmap <A-j> <C-w>j
 
 " File navigation
 let g:WhichKeyDesc_search = "<leader>f Go To File"

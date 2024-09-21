@@ -20,17 +20,16 @@ return {
         winblend = 0,
       },
     },
-    {
-      "telescope.nvim",
-      dependencies = {
-        "ThePrimeagen/git-worktree.nvim",
-        config = function()
-          require("telescope").load_extension("git-worktree")
-        end,
-      },
-    },
   },
-
+  -- {
+  --   "telescope.nvim",
+  --   dependencies = {
+  --     "ThePrimeagen/git-worktree.nvim",
+  --     config = function()
+  --       require("telescope").load_extension("git-worktree")
+  --     end,
+  --   },
+  -- },
   -- add telescope-fzf-native
   -- {
   --   "telescope.nvim",
