@@ -1,8 +1,10 @@
 local omnisharp_path = vim.env.OMNISHARP_PATH
 local pid = vim.fn.getpid()
 local util = require("lspconfig/util")
+local Snacks = require("snacks")
 
 if omnisharp_path ~= nil then
+  Snacks.notifier.notify("Omnisharp Loaded", "info", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
   return {
     {
       "neovim/nvim-lspconfig",
@@ -71,5 +73,6 @@ if omnisharp_path ~= nil then
     },
   }
 else
+  Snacks.notifier.notify("Omnisharp Not Found", "info", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
   return {}
 end

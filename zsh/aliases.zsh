@@ -35,10 +35,7 @@ alias conf="nvim ~/.home"
 alias dotf="nvim ~/.config"
 alias note="nvim ~/paranote"
 
-
-
-alias syabai="source ~/.config/yabai/yabairc"
 alias szsh="source ~/.config/zsh/.zshrc"
 
 alias btm="nix-shell -p bottom --run btm"
-# alias podman-tui="pui"
+alias drs="darwin-rebuild switch --flake ~/.home#imbp --impure"
