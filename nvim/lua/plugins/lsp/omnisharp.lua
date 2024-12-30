@@ -1,4 +1,5 @@
 local omnisharp_path = vim.env.OMNISHARP_PATH
+local csharp_ls = vim.env.CSHARP_LS
 local pid = vim.fn.getpid()
 local util = require("lspconfig/util")
 local Snacks = require("snacks")
@@ -72,7 +73,23 @@ if omnisharp_path ~= nil then
       },
     },
   }
+elseif csharp_ls ~= nil then
+  Snacks.notifier.notify("Csharp Ls Found", "info", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
+  return {
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          csharp_ls = {
+            mason = false,
+            cmd = { "csharp-ls" },
+            root_dir = util.root_pattern("*.sln", ".git", "flake.nix"),
+          },
+        },
+      },
+    },
+  }
 else
-  Snacks.notifier.notify("Omnisharp Not Found", "info", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
+  Snacks.notifier.notify("No LSP For Csharp Found", "warn", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
   return {}
 end

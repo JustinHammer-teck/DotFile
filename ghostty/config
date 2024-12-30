@@ -1,0 +1,28 @@
+
+
+theme = catppuccin-macchiato
+
+background = #000003
+
+background-opacity = 0.65
+background-blur-radius = 15
+
+font-family = JetBrainsMonoNL Nerd Font
+font-size = 20
+
+cursor-style = block
+cursor-style-blink = false
+
+
+confirm-close-surface = false
+window-decoration = true
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
+macos-titlebar-style = hidden 
+
+auto-update = check
+
+keybind = super+r=reload_config
+keybind = super+i=inspector:toggle
