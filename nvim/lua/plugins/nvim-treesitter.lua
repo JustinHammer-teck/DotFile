@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M = {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
@@ -10,15 +12,13 @@ return {
       ensure_installed = {
         "bash",
         "json",
-        "jq",
         "lua",
         "markdown",
         "markdown_inline",
         "python",
         "regex",
-        "vim",
-        "yaml",
         "go",
+        "php",
         "dockerfile",
         "c_sharp",
         "vue",
@@ -89,3 +89,5 @@ return {
     },
   },
 }
+
+return M

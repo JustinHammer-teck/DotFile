@@ -1,6 +1,7 @@
 local nil_path = vim.env.NIL_PATH
 local nixd_path = vim.env.NIXD_PATH
 local Snacks = require("snacks")
+
 if nil_path ~= nil then
   Snacks.notifier.notify("Nil Loaded", "info", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
   return {
@@ -24,8 +25,10 @@ if nil_path ~= nil then
   }
 elseif nixd_path ~= nil then
   Snacks.notifier.notify("Nixd Loaded", "info", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
+
   local nix_flake = '(builtins.getFlake "github:JustinHammer-teck/nix-config")'
   local nix_darwin_options = nix_flake .. ".darwinConfigurations.imbp.options"
+
   return {
     {
       "neovim/nvim-lspconfig",
@@ -38,7 +41,7 @@ elseif nixd_path ~= nil then
             settings = {
               nixd = {
                 nixpkgs = {
-                  expr = "import" .. nix_flake .. ".inputs.nixpkgs { }",
+                  expr = "import" .. nix_flake .. ".inputs.nixpkgs",
                 },
                 formatting = {
                   command = { "nixfmt" },
@@ -48,7 +51,7 @@ elseif nixd_path ~= nil then
                     expr = nix_darwin_options,
                   },
                   home_manager = {
-                    expr = nix_darwin_options .. ".home-manager.users.type.getSubOptions []",
+                    expr = nix_darwin_options .. ".home-manager.users.options",
                   },
                 },
               },
