@@ -7,6 +7,7 @@ return {
   },
   require("plugins.modules.ui.setup.colorscheme"),
   require("plugins.modules.ui.setup.dressing"),
+  require("plugins.modules.ui.render-markdown"),
   require("plugins.modules.obsidian"),
   require("plugins.lsp.csharp"),
   require("plugins.lsp.nix-lsp"),

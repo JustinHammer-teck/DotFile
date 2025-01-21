@@ -9,7 +9,7 @@ M.opts = {
     section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard", "Outline" },
     always_divide_middle = true,
-    theme = "auto",
+    theme = "everforest",
   },
 }
 

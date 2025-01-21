@@ -6,7 +6,7 @@ return {
       -- add a keymap to browse plugin files
       -- stylua: ignore
       {
-        "<leader>fp",
+        "<leader>ff",
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
@@ -21,6 +21,9 @@ return {
       },
     },
   },
+  -- {
+  --   "ThePrimeagen/git-worktree.nvim",
+  -- },
   -- {
   --   "telescope.nvim",
   --   dependencies = {

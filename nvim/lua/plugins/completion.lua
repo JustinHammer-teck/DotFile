@@ -18,6 +18,7 @@ M = {
   dependencies = {
     "rafamadriz/friendly-snippets",
     "L3MON4D3/LuaSnip",
+    "saghen/blink.compat",
   },
   -- use a release tag to download pre-built binaries
   version = "*",
@@ -33,13 +34,22 @@ M = {
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- See the full "keymap" documentation for information on defining your own keymap.
-    keymap = { preset = "default" },
+    keymap = {
+      preset = "enter",
+      -- ["<CR>"] = { "accept", "fallback" },
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
+      ["<C-k>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-j>"] = { "scroll_documentation_down", "fallback" },
+      ["<C-e>"] = { "hide" },
+      ["K"] = { "show", "show_documentation", "hide_documentation" },
+    },
 
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
       -- Useful for when your theme doesn't support blink.cmp
       -- Will be removed in a future release
-      use_nvim_cmp_as_default = true,
+      use_nvim_cmp_as_default = false,
       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = "mono",
@@ -48,37 +58,47 @@ M = {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path", "snippets", "buffer", "markdown" },
+      cmdline = {},
     },
   },
   opts_extend = { "sources.default" },
 }
 
-M.opts.completion = {
-  documentation = { auto_show = true, auto_show_delay_ms = 250 },
-  trigger = {
-    show_on_trigger_character = false,
-    show_on_insert_on_trigger_character = true,
+M.opts.keymap.cmdline = {
+  ["<cr>"] = {
+    function(cmp)
+      -- Enter should accept and execute (instead of just accept)
+      -- This lets me press enter once to execute a :cmdline command, instead of pressing twice
+      return cmp.accept({
+        callback = function()
+          vim.api.nvim_feedkeys("\n", "n", true)
+        end,
+      })
+    end,
+    "fallback",
   },
-  accept = { auto_brackets = { enabled = true } },
-  list = { selection = { preselect = false, auto_insert = true } },
+  ["<Tab>"] = { "select_next", "fallback" },
+  ["<S-Tab>"] = { "select_prev", "fallback" },
 }
 
-M.opts.signature = { enabled = false }
+M.opts.completion = {
+  documentation = {
+    auto_show = true,
+    auto_show_delay_ms = 250,
+    treesitter_highlighting = false,
+  },
+  trigger = {
+    show_on_keyword = true,
+  },
+  accept = { auto_brackets = { enabled = true } },
+  list = { selection = {
+    preselect = false,
+    auto_insert = true,
+  } },
+}
 
-M.opts.sources.cmdline = function()
-  local type = vim.fn.getcmdline()
-
-  if type == "/" or type == "?" then
-    return { "buffer" }
-  end
-
-  if type == ":" or type == "@" then
-    return { "cmdline" }
-  end
-
-  return {}
-end
+M.opts.signature = { enabled = true }
 
 M.opts.sources.providers = {
   lsp = {
@@ -178,6 +198,12 @@ M.opts.sources.providers = {
           :totable()
       end,
     },
+  },
+
+  markdown = {
+    name = "RenderMarkdown",
+    module = "render-markdown.integ.blink",
+    fallbacks = { "lsp" },
   },
 }
 

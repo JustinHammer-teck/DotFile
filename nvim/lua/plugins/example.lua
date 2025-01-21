@@ -17,7 +17,6 @@ return {
   },
 
   -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
@@ -25,9 +24,6 @@ return {
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     config = true,
   },
-  -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
-  -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
-  { import = "lazyvim.plugins.extras.lang.typescript" },
 
   -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
   -- would overwrite `ensure_installed` with the new value.
@@ -77,5 +73,4 @@ return {
       delete_check_events = "TextChanged",
     },
   },
-  -- then: setup supertab in cmp
 }

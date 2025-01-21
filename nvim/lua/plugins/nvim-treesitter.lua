@@ -10,15 +10,11 @@ M = {
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
-        "bash",
-        "json",
         "lua",
         "markdown",
         "markdown_inline",
         "python",
         "regex",
-        "go",
-        "php",
         "dockerfile",
         "c_sharp",
         "vue",
