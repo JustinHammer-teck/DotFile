@@ -6,6 +6,5 @@ return {
       nix = { "nixfmt" },
       c_sharp = { "csharpier" },
     },
-    format_on_save = { timeout_ms = 250 },
   },
 }

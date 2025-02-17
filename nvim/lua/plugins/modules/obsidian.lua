@@ -24,6 +24,10 @@ local Obsidian = {
         path = "$HOME/paranote",
       },
     },
+    daily_notes = {
+      folder = "Archieves/Dailies",
+      default_tags = { "daily-notes" },
+    },
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Set to false to disable completion.

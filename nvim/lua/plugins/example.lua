@@ -54,12 +54,7 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
-        "shellcheck",
         "shfmt",
-        "black",
-        "mypy",
-        "ruff",
-        "pyright",
       },
     },
   },

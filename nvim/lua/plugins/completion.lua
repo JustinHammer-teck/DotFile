@@ -21,7 +21,7 @@ M = {
     "saghen/blink.compat",
   },
   -- use a release tag to download pre-built binaries
-  version = "*",
+  version = "v0.12.4",
   -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
   -- build = 'cargo build --release',
   -- If you use nix, you can build from source using latest nightly rust with:
@@ -36,7 +36,7 @@ M = {
     -- See the full "keymap" documentation for information on defining your own keymap.
     keymap = {
       preset = "enter",
-      -- ["<CR>"] = { "accept", "fallback" },
+      ["<CR>"] = { "accept", "fallback" },
       ["<Tab>"] = { "select_next", "fallback" },
       ["<S-Tab>"] = { "select_prev", "fallback" },
       ["<C-k>"] = { "scroll_documentation_up", "fallback" },
@@ -54,32 +54,28 @@ M = {
       -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = "mono",
     },
-
-    -- Default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, due to `opts_extend`
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer", "markdown" },
-      cmdline = {},
-    },
   },
   opts_extend = { "sources.default" },
 }
 
-M.opts.keymap.cmdline = {
-  ["<cr>"] = {
-    function(cmp)
-      -- Enter should accept and execute (instead of just accept)
-      -- This lets me press enter once to execute a :cmdline command, instead of pressing twice
-      return cmp.accept({
-        callback = function()
-          vim.api.nvim_feedkeys("\n", "n", true)
-        end,
-      })
-    end,
-    "fallback",
+M.opts.cmdline = {
+  enabled = true,
+  keymap = {
+    ["<cr>"] = {
+      function(cmp)
+        -- Enter should accept and execute (instead of just accept)
+        -- This lets me press enter once to execute a :cmdline command, instead of pressing twice
+        return cmp.accept({
+          callback = function()
+            vim.api.nvim_feedkeys("\n", "n", true)
+          end,
+        })
+      end,
+      "fallback",
+    },
+    ["<Tab>"] = { "select_next", "fallback" },
+    ["<S-Tab>"] = { "select_prev", "fallback" },
   },
-  ["<Tab>"] = { "select_next", "fallback" },
-  ["<S-Tab>"] = { "select_prev", "fallback" },
 }
 
 M.opts.completion = {
@@ -99,6 +95,12 @@ M.opts.completion = {
 }
 
 M.opts.signature = { enabled = true }
+
+-- Default list of enabled providers defined so that you can extend it
+-- elsewhere in your config, without redefining it, due to `opts_extend`
+M.opts.sources = {
+  default = { "lsp", "path", "snippets", "buffer", "markdown" },
+}
 
 M.opts.sources.providers = {
   lsp = {
