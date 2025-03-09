@@ -60,19 +60,18 @@ local Obsidian = {
         end,
         opts = { buffer = true, expr = true },
       },
-    }, -- see below for full list of options 👇
+    },
   },
+  config = function(_, opts)
+    require("obsidian").setup(opts)
+
+    -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
+    local cmp = require("cmp")
+    cmp.register_source("obsidian", require("cmp_obsidian").new())
+    cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
+    cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
+  end,
 }
-
-Obsidian.config = function(_, opts)
-  require("obsidian").setup(opts)
-
-  -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
-  local cmp = require("cmp")
-  cmp.register_source("obsidian", require("cmp_obsidian").new())
-  cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
-  cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
-end
 
 local Blink = {
   "saghen/blink.cmp",

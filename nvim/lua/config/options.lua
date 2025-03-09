@@ -3,6 +3,8 @@
 -- Add any additional options here
 
 local opt = vim.o
+-- Disable Mouse
+opt.mouse = ""
 
 opt.backup = false
 opt.cmdheight = 0

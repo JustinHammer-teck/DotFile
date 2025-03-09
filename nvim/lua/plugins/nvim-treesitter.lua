@@ -17,8 +17,9 @@ M = {
         "regex",
         "dockerfile",
         "c_sharp",
-        "vue",
         "typescript",
+        "javascript",
+        "tsx",
         "nix",
       },
       highlight = {

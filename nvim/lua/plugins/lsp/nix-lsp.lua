@@ -41,17 +41,14 @@ elseif nixd_path ~= nil then
             settings = {
               nixd = {
                 nixpkgs = {
-                  expr = "import" .. nix_flake .. ".inputs.nixpkgs",
+                  expr = "import <nixpkgs> { }",
                 },
                 formatting = {
                   command = { "nixfmt" },
                 },
                 options = {
                   nix_darwin = {
-                    expr = nix_darwin_options,
-                  },
-                  home_manager = {
-                    expr = nix_darwin_options .. ".home-manager.users.options",
+                    expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").darwinConfigurations.imbp.option',
                   },
                 },
               },

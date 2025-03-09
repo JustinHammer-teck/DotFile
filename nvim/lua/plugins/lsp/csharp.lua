@@ -12,6 +12,7 @@ if omnisharp_path ~= nil then
       dependencies = {
         "Hoffs/omnisharp-extended-lsp.nvim",
       },
+      lazy = true,
       opts = {
         servers = {
           omnisharp = {
