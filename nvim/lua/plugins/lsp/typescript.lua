@@ -49,6 +49,11 @@ if vtsls_path ~= nil then
           typescriptreact = { "prettierd" },
           ["*"] = { "trim_whitespace" },
         },
+        formatters = {
+          prettierd = {
+            append_args = { "--single-quote", "--bracket-same-line" },
+          },
+        },
       },
     },
   }

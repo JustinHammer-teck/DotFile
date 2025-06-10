@@ -1,4 +1,4 @@
-local M = {}
+local M
 
 M = {
   {
@@ -11,6 +11,7 @@ M = {
     opts = {
       ensure_installed = {
         "lua",
+        "luadoc",
         "markdown",
         "markdown_inline",
         "python",
@@ -19,7 +20,7 @@ M = {
         "c_sharp",
         "typescript",
         "javascript",
-        "tsx",
+        "jsdoc",
         "nix",
       },
       highlight = {

@@ -1,18 +1,17 @@
 
 
-theme = catppuccin-macchiato
+theme = "Everforest Dark - Hard"
 
 background = #000003
 
-background-opacity = 0.65
-background-blur-radius = 15
+background-opacity = 0.70
+background-blur-radius = 10
 
 font-family = JetBrainsMonoNL Nerd Font
-font-size = 20
+font-size = 14.5
 
 cursor-style = block
 cursor-style-blink = false
-
 
 confirm-close-surface = false
 window-decoration = true

@@ -7,13 +7,6 @@ return {
       lua = { "stylua" },
       nix = { "nixfmt" },
       c_sharp = { "csharpier" },
-      javascript = { "prettierd" },
-      typescript = { "prettierd" },
-    },
-    formatters = {
-      prettierd = {
-        append_args = { "--single-quote", "--bracket-same-line" },
-      },
     },
     format_on_save = {
       lsp_format = "fallback",

@@ -55,6 +55,7 @@ return {
       ensure_installed = {
         "stylua",
         "shfmt",
+        "pyright",
       },
     },
   },
@@ -63,6 +64,10 @@ return {
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
     "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    dependencies = {
+      "rafamadriz/friend-snippets",
+    },
     opts = {
       history = true,
       delete_check_events = "TextChanged",

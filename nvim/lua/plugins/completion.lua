@@ -7,21 +7,17 @@
 -- https://www.lazyvim.org/extras/coding/blink
 -- https://github.com/saghen/blink.cmp
 -- Documentation site: https://cmp.saghen.dev/
---
 local M = {}
-
--- NOTE: Specify the trigger character(s) used for luasnip
-
+--- NOTE: Specify the trigger character(s) used for luasnip
 M = {
   "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
   dependencies = {
-    "rafamadriz/friendly-snippets",
-    "L3MON4D3/LuaSnip",
+    { "L3MON4D3/LuaSnip", version = "v2.*" },
     "saghen/blink.compat",
   },
   -- use a release tag to download pre-built binaries
-  version = "v0.12.4",
+  version = "v0.13.1",
   -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
   -- build = 'cargo build --release',
   -- If you use nix, you can build from source using latest nightly rust with:
@@ -54,31 +50,40 @@ M = {
       -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = "mono",
     },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    snippets = { preset = "default" },
   },
   opts_extend = { "sources.default" },
 }
 
-M.opts.cmdline = {
-  enabled = true,
-  keymap = {
-    ["<cr>"] = {
-      function(cmp)
-        -- Enter should accept and execute (instead of just accept)
-        -- This lets me press enter once to execute a :cmdline command, instead of pressing twice
-        return cmp.accept({
-          callback = function()
-            vim.api.nvim_feedkeys("\n", "n", true)
-          end,
-        })
-      end,
-      "fallback",
-    },
-    ["<Tab>"] = { "select_next", "fallback" },
-    ["<S-Tab>"] = { "select_prev", "fallback" },
-  },
-}
+-- M.opts.cmdline = {
+--   enabled = true,
+--   keymap = {
+--     ["<cr>"] = {
+--       function(cmp)
+--         -- Enter should accept and execute (instead of just accept)
+--         -- This lets me press enter once to execute a :cmdline command, instead of pressing twice
+--         return cmp.accept({
+--           callback = function()
+--             vim.api.nvim_feedkeys("\n", "n", true)
+--           end,
+--         })
+--       end,
+--       "fallback",
+--     },
+--     ["<Tab>"] = { "select_next", "fallback" },
+--     ["<S-Tab>"] = { "select_prev", "fallback" },
+--   },
+--   completion = {
+--     trigger = {
+--       show_on_keyword = true,
+--     },
+--     menu = { auto_show = true },
+--   },
+-- }
 
 M.opts.completion = {
+  ghost_text = { enabled = true },
   documentation = {
     auto_show = true,
     auto_show_delay_ms = 250,
@@ -168,13 +173,13 @@ M.opts.sources.providers = {
       clipboard_register = nil,
     },
 
-    -- -- For `snippets.preset == 'luasnip'`
+    -- For `snippets.preset == 'luasnip'`
     -- opts = {
     --   -- Whether to use show_condition for filtering snippets
-    --   use_show_condition = true,
+    --   use_show_condition = false,
     --   -- Whether to show autosnippets in the completion list
     --   show_autosnippets = true,
-    -- }
+    -- },
     --
     -- -- For `snippets.preset == 'mini_snippets'`
     -- opts = {
