@@ -22,6 +22,11 @@ M = {
         "javascript",
         "jsdoc",
         "nix",
+        "go",
+        "gomod",
+        "gowork",
+        "gosum",
+        "tsx",
       },
       highlight = {
         enable = true,

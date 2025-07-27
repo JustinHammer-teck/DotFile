@@ -56,31 +56,14 @@ M = {
   opts_extend = { "sources.default" },
 }
 
--- M.opts.cmdline = {
---   enabled = true,
---   keymap = {
---     ["<cr>"] = {
---       function(cmp)
---         -- Enter should accept and execute (instead of just accept)
---         -- This lets me press enter once to execute a :cmdline command, instead of pressing twice
---         return cmp.accept({
---           callback = function()
---             vim.api.nvim_feedkeys("\n", "n", true)
---           end,
---         })
---       end,
---       "fallback",
---     },
---     ["<Tab>"] = { "select_next", "fallback" },
---     ["<S-Tab>"] = { "select_prev", "fallback" },
---   },
---   completion = {
---     trigger = {
---       show_on_keyword = true,
---     },
---     menu = { auto_show = true },
---   },
--- }
+M.opts.cmdline = {
+  keymap = {
+    preset = "enter",
+    ["<CR>"] = { "accept", "fallback" },
+    ["<Tab>"] = { "select_next", "fallback" },
+    ["<S-Tab>"] = { "select_prev", "fallback" },
+  },
+}
 
 M.opts.completion = {
   ghost_text = { enabled = true },
@@ -105,6 +88,9 @@ M.opts.signature = { enabled = true }
 -- elsewhere in your config, without redefining it, due to `opts_extend`
 M.opts.sources = {
   default = { "lsp", "path", "snippets", "buffer", "markdown" },
+  per_filetype = {
+    sql = { "dadbod" },
+  },
 }
 
 M.opts.sources.providers = {
@@ -129,7 +115,7 @@ M.opts.sources.providers = {
     --- See the type definitions for more information
     enabled = true, -- Whether or not to enable the provider
     async = false, -- Whether we should wait for the provider to return before showing the completions
-    timeout_ms = 2000, -- How long to wait for the provider to return before showing completions and treating it as asynchronous
+    timeout_ms = 1250, -- How long to wait for the provider to return before showing completions and treating it as asynchronous
     should_show_items = true, -- Whether or not to show the items
     max_items = nil, -- Maximum number of items to display in the menu
     min_keyword_length = 0, -- Minimum number of characters in the keyword to trigger the provider

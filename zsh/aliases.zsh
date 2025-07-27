@@ -38,4 +38,12 @@ alias note="nvim ~/paranote"
 alias szsh="source ~/.config/zsh/.zshrc"
 
 alias btm="nix-shell -p bottom --run btm"
-alias drs="darwin-rebuild switch --flake ~/.home#imbp --impure"
+
+alias ts="tailscale"
+alias tss="tailscale status"
+alias tssh="tailscale ssh"
+alias toxucxich="tailscale ssh xucxich@xucxich"
+
+alias rider="open -na "Rider.app" &"
+alias pycharm="open -na "Pycharm.app" &"
+alias phpstorm="open -na "PhpStorm.app" &"

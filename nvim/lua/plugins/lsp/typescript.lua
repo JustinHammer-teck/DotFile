@@ -15,11 +15,12 @@
 --     },
 --   },
 -- }
---
+
 local M
 local vtsls_path = vim.env.VTSLS_PATH
-local volar_path = vim.env.VOLAR_PATH
 local Snacks = require("snacks")
+local util = require("lspconfig.util")
+
 M = {}
 
 if vtsls_path ~= nil then
@@ -32,6 +33,8 @@ if vtsls_path ~= nil then
           vtsls = {
             mason = false,
             cmd = { vtsls_path, "--stdio" },
+            root_dir = util.root_pattern("package.json"),
+            settings = {},
           },
         },
       },
@@ -58,7 +61,7 @@ if vtsls_path ~= nil then
     },
   }
 else
-  Snacks.notifier.notify("No Lsp For JS/TS Found", "info", { style = "compact", timeout = 1700, title = "Lsp Loaded" })
+  Snacks.notifier.notify("No Lsp For JS/TS Found", "info", { style = "compact", timeout = 2000, title = "Lsp Loaded" })
 end
 
 return M

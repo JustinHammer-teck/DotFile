@@ -9,7 +9,10 @@ map.set("n", "<C-d>", "<C-d>zz")
 map.set("n", "<C-u>", "<C-u>zz")
 map.set("n", "<C-f>", "<C-f>zz")
 map.set("n", "<C-b>", "<C-b>zz")
-map.set("n", "Y", "yy")
+
+map.set("n", "YY", "va{Vy")
+
+map.set({ "n", "v" }, "<leader>y", '[["+y]]')
 
 -- Select all
 map.set("n", "<C-a>", "gg<S-v>G")
