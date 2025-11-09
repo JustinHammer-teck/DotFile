@@ -2,8 +2,6 @@ local M = {}
 
 M = {
   "stevearc/oil.nvim",
-  ---@module 'oil'
-  ---@type oil.SetupOpts
   opts = {},
   config = function()
     require("oil").setup({
@@ -22,11 +20,7 @@ M = {
       },
     })
   end,
-  -- Optional dependencies
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
   lazy = false,
 }
-
 return M
