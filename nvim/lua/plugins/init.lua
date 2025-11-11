@@ -9,6 +9,6 @@ return {
   require("plugins.modules.ui.setup.colorscheme"),
   require("plugins.modules.ui.setup.dressing"),
   require("plugins.modules.ui.render-markdown"),
-
   require("plugins.modules.dabbod"),
+  require("plugins.lsp"),
 }

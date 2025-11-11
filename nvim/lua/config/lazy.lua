@@ -40,6 +40,8 @@ require("lazy").setup({
         "tutor",
         "zipPlugin",
         "cmp-emoji",
+        "mason-lspconfig",
+        "mason"
       },
     },
   },

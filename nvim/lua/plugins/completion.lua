@@ -1,5 +1,5 @@
 local M = {}
---- NOTE: Specify the trigger character(s) used for luasnip
+
 M = {
   "saghen/blink.cmp",
   dependencies = {
@@ -20,12 +20,7 @@ M = {
     },
 
     appearance = {
-      -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-      -- Useful for when your theme doesn't support blink.cmp
-      -- Will be removed in a future release
       use_nvim_cmp_as_default = false,
-      -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-      -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = "mono",
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
@@ -58,8 +53,6 @@ M.opts.completion = {
 
 M.opts.signature = { enabled = true }
 
--- Default list of enabled providers defined so that you can extend it
--- elsewhere in your config, without redefining it, due to `opts_extend`
 M.opts.sources = {
   default = { "lsp", "path", "snippets", "buffer", "markdown" },
   per_filetype = {
@@ -132,20 +125,6 @@ M.opts.sources.providers = {
       -- Set to '+' to use the system clipboard, or '"' to use the unnamed register
       clipboard_register = nil,
     },
-
-    -- For `snippets.preset == 'luasnip'`
-    -- opts = {
-    --   -- Whether to use show_condition for filtering snippets
-    --   use_show_condition = false,
-    --   -- Whether to show autosnippets in the completion list
-    --   show_autosnippets = true,
-    -- },
-    --
-    -- -- For `snippets.preset == 'mini_snippets'`
-    -- opts = {
-    --   -- Whether to use a cache for completion items
-    --   use_items_cache = true,
-    -- }
   },
 
   buffer = {
