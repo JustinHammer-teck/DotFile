@@ -1,4 +1,4 @@
-local default_srv = { "nixd", "lua_ls", "just" }
+local default_srv = { "nixd", "lua_ls", "just", "vtsls" }
 
 return {
   {

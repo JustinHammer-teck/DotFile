@@ -23,6 +23,9 @@ return {
       nixos = {
         expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").nixosConfigurations.popcorn.option',
       },
+      xucxich = {
+        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").nixosConfigurations.xucxich.option',
+      },
     },
   },
 }
