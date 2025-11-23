@@ -30,7 +30,7 @@ M = {
 }
 
 M.opts.cmdline = {
-  keymap = { preset = 'inherit' },
+  keymap = { preset = "inherit" },
   completion = { menu = { auto_show = true } },
 }
 
@@ -54,7 +54,7 @@ M.opts.completion = {
 M.opts.signature = { enabled = true }
 
 M.opts.sources = {
-  default = { "lsp", "path", "snippets", "buffer", "markdown" },
+  default = { "lsp", "path", "snippets", "buffer" },
   per_filetype = {
     sql = { "dadbod" },
   },
@@ -144,12 +144,6 @@ M.opts.sources.providers = {
           :totable()
       end,
     },
-  },
-
-  markdown = {
-    name = "RenderMarkdown",
-    module = "render-markdown.integ.blink",
-    fallbacks = { "lsp" },
   },
 }
 

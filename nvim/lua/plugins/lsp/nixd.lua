@@ -14,17 +14,23 @@ return {
   root_markers = { "flake.nix", ".git" },
   settings = {
     nixpkgs = {
-      expr = "import <nixpkgs> { }",
+      expr = 'import (builtins.getFlake "github:JustinHammer-teck/nix-config").inputs.nixpkgs { }',
     },
     options = {
       nix_darwin = {
-        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").darwinConfigurations.imbp.option',
+        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").darwinConfigurations.imbp.options',
       },
-      nixos = {
-        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").nixosConfigurations.popcorn.option',
+      imbp_home = {
+        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").darwinConfigurations.imbp.options.home-manager.users.type.getSubOptions []',
+      },
+      popcorn = {
+        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").nixosConfigurations.popcorn.options',
+      },
+      popcorn_home = {
+        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").nixosConfigurations.popcorn.options.home-manager.users.type.getSubOptions []',
       },
       xucxich = {
-        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").nixosConfigurations.xucxich.option',
+        expr = '(builtins.getFlake "github:JustinHammer-teck/nix-config").nixosConfigurations.xucxich.options',
       },
     },
   },
