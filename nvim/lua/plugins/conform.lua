@@ -8,16 +8,17 @@ return {
       nix = { "nixfmt" },
       c_sharp = { "csharpier" },
       python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
     },
     formatter = {
-        csharpier = {
-            command = "csharpier",
-            args = {
-                "format",
-                "--write-stdout",
-            },
-            to_stdin = true,
+      csharpier = {
+        command = "csharpier",
+        args = {
+          "format",
+          "--write-stdout",
         },
+        to_stdin = true,
+      },
     },
     log_level = vim.log.levels.DEBUG,
   },

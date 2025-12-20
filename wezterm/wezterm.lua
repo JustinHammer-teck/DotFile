@@ -4,7 +4,7 @@ local config = {
 	color_scheme = "Everforest Dark (Medium)",
 	default_prog = { "zsh", "--login" },
 	window_decorations = "RESIZE",
-	window_background_opacity = 0.85,
+	window_background_opacity = 0.93,
 	macos_window_background_blur = 10,
 	font = wezterm.font_with_fallback({
 		"DroidSansM Nerd Font",
